@@ -1,9 +1,17 @@
 # Demo Steps
 
+### Before init
+```
+sudo chmod 777 -R slave master
+sudo chmod 0444 master/conf.d/master.cnf 
+sudo chmod 0444 slave/conf.d/slave.cnf  
+```
+
 ## Initialize Docker Containers
 ```
-docker-compose up
+docker-compose up -d
 ```
+--force-recreate
 
 ## Login to Master
 ```
