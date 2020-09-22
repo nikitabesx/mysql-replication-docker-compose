@@ -25,4 +25,4 @@ m-master:
 	docker exec -i -t mysql-master /bin/bash
 
 m-slave:
-	docker exec -i -t mysql-master /bin/bash
+	docker exec -i -t mysql-slave /bin/bash
