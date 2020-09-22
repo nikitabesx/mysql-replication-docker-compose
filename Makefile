@@ -21,8 +21,8 @@ fix-rights:
 up:
 	docker-compose up -d
 
-master:
+m-master:
 	docker exec -i -t mysql-master /bin/bash
 
-slave:
+m-slave:
 	docker exec -i -t mysql-master /bin/bash
