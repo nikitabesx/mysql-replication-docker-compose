@@ -31,3 +31,19 @@ services:
       - MYSQL_DATABASE=dbase
     depends_on:
       - mysql-master
+  mysql-slave-second:
+    image: 'mysql:5.7'
+    hostname: 'slave-second'
+    container_name: 'mysql-slave-second'
+    ports:
+      - 3309:3306
+    volumes:
+      - $PWD/slave-second/conf.d:/etc/mysql/mysql.conf.d
+      - $PWD/slave-second/data:/var/lib/mysql
+      - $PWD/slave-second/log:/var/log/mysql
+      - $PWD/slave-second/backup:/backup
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql
+      - MYSQL_DATABASE=dbase
+    depends_on:
+      - mysql-master

@@ -14,9 +14,10 @@ clean:
     @echo "Done"
 
 fix-rights:
-	sudo chmod 777 -R slave master ;\
+	sudo chmod 777 -R slave master slave-second;\
     sudo chmod 0444 master/conf.d/master.cnf  ;\
-    sudo chmod 0444 slave/conf.d/slave.cnf
+    sudo chmod 0444 slave/conf.d/slave.cnf ;\
+    sudo chmod 0444 slave-second/conf.d/slave.cnf
 
 up:
 	docker-compose up -d
