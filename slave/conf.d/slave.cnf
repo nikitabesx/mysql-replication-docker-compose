@@ -8,6 +8,7 @@ bind-address = 0.0.0.0 # make sure to bind it to all IPs, else mysql listens on 
 character_set_server = utf8
 collation_server = utf8_general_ci
 binlog_format = ROW
+read-only = ON
 
 gtid-mode = on
 enforce-gtid-consistency = true
