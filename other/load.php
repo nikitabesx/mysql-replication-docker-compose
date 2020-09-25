@@ -58,13 +58,17 @@ class LoadImitator
         $stmt = $this->conn->prepare('INSERT INTO demo (id) values (:value)');
 
         while(true) {
-            $stmt->execute([':value' => \random_int(0, PHP_MAX_INT32)]);
+            $isSuccess = $stmt->execute([':value' => \random_int(0, PHP_MAX_INT32)]);
+            if (false === $isSuccess) {
+                $this->echoBBr('FAIL!');
+                $this->onSignalHandler();
+            }
 
             ++$this->cnt;
             $this->echo('+');
 
             if (0 === $this->cnt % 100) {
-                $this->echoBr(PHP_EOL.\sprintf('Inserted: %d', $this->cnt));
+                $this->echoBBr(\sprintf('Inserted: %d', $this->cnt));
             }
 
             if ($this->waitTtl > 0 ) {
@@ -87,6 +91,10 @@ class LoadImitator
         echo $this->echo($string) . PHP_EOL;
     }
 
+    private function echoBBr(string $string): void {
+        echo PHP_EOL . $this->echoBr($string);
+    }
+
     private function echo(string $string): void {
         echo $string;
     }
@@ -102,7 +110,7 @@ class LoadImitator
     }
 
     private function onSignalHandler(): void {
-        $this->echoBr(PHP_EOL . sprintf('TOTAL INSERTED ROWS: %d', $this->cnt));
+        $this->echoBBr(sprintf('TOTAL INSERTED ROWS: %d', $this->cnt));
         exit(1);
     }
 }
