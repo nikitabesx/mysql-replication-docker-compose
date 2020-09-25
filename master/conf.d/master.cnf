@@ -6,7 +6,7 @@
  character_set_server = utf8
  collation_server = utf8_general_ci
  binlog_format = ROW
- rpl_semi_sync_master_enabled = 1
+ # rpl_semi_sync_master_enabled = 1
 
 gtid-mode = on
 
