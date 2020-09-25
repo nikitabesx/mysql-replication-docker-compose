@@ -58,7 +58,6 @@ class LoadImitator
         $stmt = $this->conn->prepare('INSERT INTO demo (id) values (:value)');
 
         while(true) {
-            $stmt->execute([':value' => \random_int(0, PHP_MAX_INT32)]);
             $isSuccess = $stmt->execute([':value' => \random_int(0, PHP_MAX_INT32)]);
             if (false === $isSuccess) {
                 $this->echoBBr('FAIL!');
