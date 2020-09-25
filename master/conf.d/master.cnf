@@ -6,11 +6,13 @@
  character_set_server = utf8
  collation_server = utf8_general_ci
  binlog_format = ROW
- # rpl_semi_sync_master_enabled = 1
+ gtid-mode = on
+ enforce-gtid-consistency = true
 
-gtid-mode = on
-
-enforce-gtid-consistency = true
+ plugin-load-add=rpl_semi_sync_master=semisync_master.so
+ plugin-load-add=rpl_semi_sync_slave=semisync_slave.so
+ rpl_semi_sync_master_enabled = 1
+ rpl_semi_sync_master_timeout=5000
  
 [mysql]
  default_character_set = utf8

@@ -19,6 +19,11 @@ fix-rights:
     sudo chmod 0444 slave/conf.d/slave.cnf ;\
     sudo chmod 0444 slave-second/conf.d/slave.cnf
 
+fix-config-rights:
+	sudo chmod 0444 slave/conf.d/slave.cnf ;\
+    sudo chmod 0444 slave-second/conf.d/slave.cnf ;\
+    sudo chmod 0444 master/conf.d/master.cnf
+
 up:
 	docker-compose up -d
 
