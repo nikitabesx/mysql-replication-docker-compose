@@ -93,6 +93,12 @@ mysqldump -u root -pmysql -h mysql-master acquia > acquia-dbdump.sql
 mysqldump -u root -pmysql -h mysql-master --master-data=1 acquia > acquia-dbdump.sql
 ```
 
+## Enable semisync replication
+http://mysql.wingtiplabs.com/documentation/sem40sk7/establish-semi-synchronous-replication.html
+```
+INSTALL PLUGIN rpl_semi_sync_master SONAME 'semisync_master.so';
+```
+
 ## Dump restore
 ```
 mysql -uroot -pmysql acquia < acquia-dbdump.sql
